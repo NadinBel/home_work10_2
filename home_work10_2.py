@@ -3,7 +3,7 @@ import time
 class Knight(Thread):
     def __init__(self, name, power):
         super().__init__()
-        self.name = name
+        self.name = str(name)
         self.power = int(power)
     def run(self):
         print(f'{self.name}, на нас напали!')
