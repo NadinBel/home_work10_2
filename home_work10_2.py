@@ -10,8 +10,13 @@ class Knight(Thread):
         count_enemy = 100
         day_combat = 0
         while count_enemy > 0:
-            count_enemy -= self.power
-            day_combat += 1
+            if count_enemy > self.power:
+                count_enemy -= self.power
+                day_combat += 1
+            else:
+                day_combat += (count_enemy / self.power)
+                day_combat = round(day_combat, 2)
+                count_enemy = 0
             print(f'{self.name}, сражается {day_combat} день(дня)..., осталось {count_enemy} воинов.')
             time.sleep(1)
         print(f'{self.name} одержал победу спустя {day_combat} дней(дня)!')
